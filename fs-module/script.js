@@ -10,7 +10,18 @@ import { join } from "path";
 //     console.log("folder created successfully");
 // })
 
-fs.writeFile('demo.txt',"hey",(err)=>{
+// fs.writeFile('demo.txt',"hey",(err)=>{
+//     if (err) throw err;
+//     console.log("file created");
+// })
+
+fs.readdir("../",(err,files)=>{
     if (err) throw err;
-    console.log("file created");
+    for (let i = 0; i < 3; i++) {
+        console.log(files[i]);;
+        
+    }
+    // files.forEach(file => {
+    //     console.log(file);
+    // })
 })
