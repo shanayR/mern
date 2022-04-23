@@ -1,5 +1,4 @@
 import fs from "fs";
-import { join } from "path";
 // fs.rename('index.js','script.js', err => {
 //     if (err) throw err;
 //     console.log('file renamed');
