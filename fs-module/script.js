@@ -17,11 +17,11 @@ import { join } from "path";
 
 fs.readdir("../",(err,files)=>{
     if (err) throw err;
-    for (let i = 0; i < 3; i++) {
-        console.log(files[i]);;
+    // for (let i = 0; i < 3; i++) {
+    //     console.log(files[i]);;
         
-    }
-    // files.forEach(file => {
-    //     console.log(file);
-    // })
+    // }
+    files.slice(-3).forEach(file => {
+        console.log(file); 
+    })
 })
