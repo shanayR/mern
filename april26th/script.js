@@ -4,13 +4,26 @@ import url from 'url'
 
 let readFile = (req,res)=>{
     let myurl = url.parse(req.url,true)
-    console.log(myurl.pathname);
-    if (req.url === myurl.pathname){
-        fs.readFile(myurl.pathname+'.html','utf8',(err,data)=>{
-            if (err) throw err;
+    myurl = myurl.pathname
+    console.log(myurl);
+    if (req.url === myurl){
+        myurl = myurl.slice(1)
+        fs.readFile(myurl+'.html','utf8',(err,data)=>{
+            if (err) {
+                console.log(err);
+            };
             res.end(data)
         })
     }
+    // if (req.url === '/index'){
+    //     // let redirect = myurl+'.html'
+    //     fs.readFile('index.html','utf8',(err,data)=>{
+    //         if (err) {
+    //             console.log(err);
+    //         };
+    //         res.end(data)
+    //     })
+    // }
 }
 
-http.createServer(readFile).listen(8080)
+http.createServer(readFile).listen(8082)
