@@ -1,5 +1,4 @@
 import fs from "fs";
-import { join } from "path";
 // fs.rename('index.js','script.js', err => {
 //     if (err) throw err;
 //     console.log('file renamed');
@@ -17,11 +16,13 @@ import { join } from "path";
 
 fs.readdir("../",(err,files)=>{
     if (err) throw err;
-    for (let i = 0; i < 3; i++) {
-        console.log(files[i]);;
-        
-    }
+    
     // files.forEach(file => {
     //     console.log(file);
     // })
-}) 
+
+    files.slice(-3).forEach(file => {
+        console.log(file); 
+    });
+});
+
