@@ -1,32 +1,34 @@
-import fs from 'fs'
-import http from 'http'
+import fs from 'fs';
+import http from 'http';
+import path from 'path';
+const __dirname = path.resolve();
 
-  let writeServer = (req,res) => {
-    // let readThis = fs.createReadStream('form.html',(err, data) => {
-    //   if (err) {
-    //     console.error(err);
-    //   }
-      
-    //   return data;
-    // })
-    let readThis = fs.createReadStream('form.html','utf8')
-    let writeStream = fs.createWriteStream('./output');
-    
-  
-    // This pipes the POST data to the file
-    req.pipe(writeStream);
-    
-    // After all the data is saved, respond with a simple html form so they can post more data
-    // req.on('end', function () {
-    //   res.writeHead(200,{"content-type":"text/html"});
-    //   res.end('<form method="POST"><input name="tesst" type="text"/><input type="submit"></form>');
-    // });
-  
-    // This is here incase any errors occur
-    writeStream.on('error', function (err) {
-      console.log(err);
-    });
-    res.end()
-  } 
+// let  stream = (req,res) => {
+//   let writeStream = fs.createWriteStream('./output');
+//   req.pipe(writeStream);
+//   req.on('end',()=>{
+//     res.writeHead(200,{"content-type":"text/html"});
+//     res.end('<form method="POST">NAME:<input name="demo" /><input type="submit"></form>')
+//   })
+//   writeStream.on('error', function (err) {
+//     console.log(err);
+//   });
+// }
 
-  http.createServer(writeServer).listen(8080)
+// http.createServer(stream).listen(8080)
+
+let stream2 = (req,res) => {
+  let writeStream = fs.createWriteStream('./output2');
+  // let readThis = fs.readFile(__dirname+'form.html',(err,data)=>{
+  fs.readFile(__dirname+'/form.html',(err,data)=>{
+    if (err){
+      res.writeHead(404);
+      res.end(JSON.stringify(err));
+      return;
+    }
+    res.writeHead(200,{"content-type":"text/html"});
+    res.end(data)
+  });
+  req.pipe(writeStream);
+}
+http.createServer(stream2).listen(8080)
