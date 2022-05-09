@@ -1,0 +1,58 @@
+<ul>
+        <% countries.forEach(function(country) { %>
+            <li>
+                <%= country.name %>
+                <ul>
+                    <li>Capital: <%= country.capital %></li>
+                </ul>
+            </li>
+        <% }); %>    
+       
+    </ul>
+
+
+    import express from 'express';
+import path from 'path';
+import ejs from 'ejs';
+const app = express();
+const __dirname = path.resolve();
+
+app.set('view engine', 'ejs');
+app.get('/:id(\\d+)', function (req,res) {
+    console.log(req.params.id);
+
+    let countries = [
+        {
+            'code' : 'PK',
+            'name': 'Pakistan',
+            'capital' : 'Islamabad'    
+        },
+        {
+            'code' : 'AE',
+            'name': 'UAE',
+            'capital' : 'Abu Dhabi'    
+        }
+    ]
+    function renderPage() {
+        // if (req.params.id == 1){
+        //     console.log(countries[0]);
+        //     res.render('home',{
+        //         'countries' :countries[0],
+        //     })
+        // }
+        let id = req.params.id
+        if (id){
+            console.log(countries[id-1]);
+            res.render('home',{
+                'countries' :countries[id-1],
+            })
+        }
+    }
+    renderPage();
+    // res.render('home',{
+    //     'countries' :countries,
+    // })
+    
+});
+
+app.listen(8080)
