@@ -1,14 +1,8 @@
-import express from 'express'
-const app = express();
-const port = 8080;
-
-let callback = (a) => {
-    console.log("running call back function");
-}
-
 let xyz = (x,call) => {
     console.log(x);
-    // callback();
+    call(1,2)
 }
 
-xyz("blah",callback())
+xyz("blah",(a,b)=>{
+    console.log(a+b);
+})
