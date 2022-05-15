@@ -1,41 +1,42 @@
 import express from 'express';
-import path from 'path';
-import ejs from 'ejs';
 const app = express();
-const __dirname = path.resolve();
 
 app.set('view engine', 'ejs');
-app.get('/:id', function (req,res) {
-    console.log(req.params.id);
+app.get('/:id',  (req,res) => {
 
     let countries = [
         {
-            'code' : 'PK',
-            'name': 'Pakistan',
-            'capital' : 'Islamabad'    
+            id : 1,
+            code : 'pk',
+            name : 'Pakistan',
+            capital : 'Islamabad'   
         },
         {
-            'code' : 'as',
-            'name': 'UAE',
-            'capital' : 'Abu Dhabi'    
+            id : 2,
+            code : 'ae',
+            name : 'UAE',
+            capital : 'Abu Dhabi'    
         }
     ]
-    function renderPage() {
-        // if (req.params.id == 1){
-        //     console.log(countries[0]);
-        //     res.render('home',{
-        //         'countries' :countries[0],
-        //     })
-        // }
-        let id = req.params.id
-        if (id){
-            console.log(id);
-            // res.render('home',{
-            //     'countries' :countries[id],
-            // })
-        }
-    }
-    renderPage();
+    
+    const paramId = req.params.id;
+    // match with id
+    // let country = countries.find(({id}) => id == req.params.id);
+
+    //match with country code 
+    let country = countries.find(({code}) => code == req.params.id);
+    console.log(country);
+    res.render('home',{
+                'country' : country,
+
+            })
+
+    // if (paramId){
+    //     console.log(paramId);
+    //     res.render('home',{
+    //         'countries' :countries[paramId-1],
+    //     })
+    // }
     // res.render('home',{
     //     'countries' :countries,
     // })

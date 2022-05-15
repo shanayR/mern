@@ -9,14 +9,28 @@
 <body>
     <h1>Countries</h1>
     <ul>
-        
+        <% /* %>
+
+            <% countries.forEach(function(country) { %>
             <li>
-                <%= countries.name %>
+                <%= country.name %>
                 <ul>
-                    <li>Capital: <%= countries.capital %></li>
+                    <li>Capital: <%= country.capital %></li>
                 </ul>
             </li>
+            <% }); %>
         
+       <%  */ %>
+       
+       <% /* %>'matching with object.id' <% let country = countries.find(({id}) => id == paramId) %> <% let country = countries.find(({code}) => code == paramId) %><%  */ %>
+       
+       
+       <li>
+            <%= country.name %> 
+            <ul>
+                <li>Capital: <%= country.capital %></li>
+            </ul>
+        </li>
        
     </ul>
 </body>

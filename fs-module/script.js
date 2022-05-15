@@ -9,7 +9,7 @@ import fs from "fs";
 //     console.log("folder created successfully");
 // })
 
-// fs.writeFile('demo.txt',"hey",(err)=>{
+// fs.writeFile('demo.txt',"hello",(err)=>{
 //     if (err) throw err;
 //     console.log("file created");
 // })
