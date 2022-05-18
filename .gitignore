@@ -1,12 +1,2 @@
-mern-express/node_modules
-mern-express/package-lock.json
-post-form-data/node_modules
-post-form-data/package-lock.json
-ejsTemplate/node_modules
-ejsTemplate/package-lock.json
-static-files/node_modules
-static-files/package-lock.json
-login-register-forms/node_modules
-login-register-forms/package-lock.json
 node_modules
 package-lock.json
