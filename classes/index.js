@@ -25,3 +25,5 @@ const teacher2 = new Teacher("Alia",12,false)
 teacher1.teachers()
 teacher2.teachers()
 
+console.log(teacher1);
+
