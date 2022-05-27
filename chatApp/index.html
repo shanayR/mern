@@ -30,7 +30,7 @@
     var messages = document.getElementById('messages');
     var form = document.getElementById('form');
     var input = document.getElementById('input');
-
+    
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         if (input.value) {
@@ -39,9 +39,11 @@
         }
     })
     socket.on('users connected',function(usersConnected){
-        let usercount = document.createElement('h4');
-        document.getElementsByTagName('h4');
-        usercount.appendChild(usersConnected);
+        let usercount = document.createElement('h2');
+        usercount.innerText = 'usersConnected';
+        body.appendChild(usercount);
+        // document.getElementsByTagName('h4');
+        // usercount.appendChild(usersConnected);
     })
     socket.on('chat message', function(msg) {
         let item = document.createElement('li');

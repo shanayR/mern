@@ -14,20 +14,22 @@ res.sendFile(__dirname + '/index.html');
 });
 
 io.on('connection', (socket) => {
-    let usersConnected = socket.client.conn.server.clientsCount;
+  let usersConnected = socket.client.conn.server.clientsCount;
+  socket.on('users connected',(usersConnected)=>{
     console.log( `users connected: ${usersConnected}`);
-    
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
-        console.log( `users connected: ${usersConnected} `);
-    });
-    
-    socket.on('chat message', (msg) => {
-        console.log('message: ' + msg);
-        io.emit('chat message', msg);
-    });
     io.emit('users connected', usersConnected);
+  })
+  
+  socket.on('disconnect', () => {
+      console.log('user disconnected');
+      console.log( `users connected: ${usersConnected} `);
   });
+    
+  socket.on('chat message', (msg) => {
+      console.log('message: ' + msg);
+      io.emit('chat message', msg);
+  });
+});
 
   
 server.listen(3000, () => {
