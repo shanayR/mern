@@ -1,12 +1,22 @@
+import dotenv from 'dotenv/config';
 import express from "express";
-import {router} from "./routes/routes.js";
-import path from 'path';
-
-// const routerr = router;
-const port = 8080;
+import { MongoClient, ServerApiVersion } from 'mongodb';
+import { postForm, renderForm } from "./controller/controller.js";
+// import {router} from "./routes/routes.js";
 const app = express();
-const __dirname = path.resolve();
-app.use('/static', express.static(path.join(__dirname,'public')));
-app.use('/add', router);
+const client = new MongoClient(process.env.DATABASE_URI, { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true, 
+    serverApi: ServerApiVersion.v1 });
+
+app.set('view engine', 'ejs');
+app.get('/',renderForm)
+app.use(express.urlencoded({extended:false}));
+app.post('/postdata',postForm)
+        
+        // perform actions on the collection object
+        // client.close();
+    
+// app.use('/add', router);
 
 app.listen(port)
