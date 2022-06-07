@@ -38,7 +38,7 @@ maximum()
 // using .reduce()
 let maximum2 = () =>{
     let max2 = arr.reduce((prev, curr) => {
-          return Math.max(prev, curr)
+        return Math.max(prev, curr)
     }); 
     console.log(`maximum value using reduce : ${max2}`);
     

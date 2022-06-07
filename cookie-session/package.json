@@ -1,16 +1,14 @@
 {
-  "name": "assignment",
+  "name": "cookie-session",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "node assg.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "shanay",
+  "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "eslint": "^8.15.0"
-  },
   "dependencies": {
     "cookie-session": "^2.0.0",
     "express": "^4.18.1"

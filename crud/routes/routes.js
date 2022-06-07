@@ -9,9 +9,9 @@ router.use((req, res, next) => {
     next()
   })
   
-  router.get('/add', (req, res) => {
-    res.render('add')
-  })
+router.get('/add', (req, res) => {
+  res.render('add')
+})
   
   
  export {router}
