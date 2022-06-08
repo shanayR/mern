@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/css/style.css">
-    <title>Edit</title>
-</head>
-<body>
-    <form action="update" method="post">
-        Email:<input type="text" name="email" placeholder="Email">
-        <!-- Old Password:<input type="password" name="old-password"> -->
-        New Password:<input type="password" name="password">
-        <input type="submit" value="submit" >
-
+<%- include('include/header'); %>
+    <form action="users/update/<%=userData._id%>" method="POST">
+        <div>
+            <label for="">Name</label>
+            <input type="text" name="name" placeholder="Name" value="<%=userData.name%>">
+        </div>
+        <div>
+            <label for="">Email</label>
+            <input type="email" name="email" value="<%=userData.email%>">
+        </div>
+        <div>
+            <label for="">Password</label>
+            <input type="password" name="password" value="<%=userData.password%>">
+        </div>
+        <div>
+            <input type="submit" value="submit">
+        </div>
     </form>
 </body>
 </html>

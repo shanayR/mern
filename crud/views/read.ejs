@@ -1,13 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/css/style.css">
-    <title>Read</title>
-</head>
-<body>
-    <p class=""></p>
+<%- include('include/header'); %>
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Update</th>
+        </thead>
+        <tbody>
+            <% for(let user of locals.userData){ %>
+                <tr>
+                    <td>
+                        <%= user._id%>
+                    </td>
+                    <td>
+                        <%= user.name %>
+                    </td>
+                    <td>
+                        <%= user.email %>
+                    </td>
+                    <td>
+                        <a href="http://localhost:8080/users/update/<%=user._id%>" class="edit"
+                            data-toggle="modal">Edit</a>
+                        <a href="http://localhost:8080/users/delete/<%=user._id%>" class="delete">Delete</i></a>
+                    </td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
 </body>
 </html>
