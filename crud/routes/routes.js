@@ -1,17 +1,17 @@
 import express from "express";
+import { renderForm,createUser,updateUser,updateForm } from "../controller/controller.js";
+
 const app = express();
 const router = express.Router();
 
 app.set('view engine', 'ejs');
 // middleware that is specific to this router
-router.use((req, res, next) => {
-    console.log('Time: ', Date.now())
-    next()
-  })
+
   
-router.get('/add', (req, res) => {
-  res.render('add')
-})
+router.get('/add', renderForm)
+router.post('/add', createUser)
+router.get('/update',updateForm)
+router.post('/update',updateUser)
   
   
  export {router}
