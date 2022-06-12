@@ -1,9 +1,6 @@
 import dotenv from 'dotenv/config';
 import express from "express";
-// import { MongoClient, ServerApiVersion } from 'mongodb';
 import { router } from './routes/routes.js';
-// import { createUser, renderForm } from "./controller/controller.js";
-// import {router} from "./routes/routes.js";
 import path from 'path';
 
 const __dirname = path.resolve();
